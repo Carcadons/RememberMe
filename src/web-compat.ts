@@ -167,61 +167,30 @@ export const Platform = {
   select: (obj: any) => obj.web || obj.default,
 };
 
+export const FlatList = ({ data, renderItem, keyExtractor, contentContainerStyle, refreshControl }: any) => {
+  return (
+    <div style={contentContainerStyle}>
+      {data?.map((item: any, index: number) => (
+        <div key={keyExtractor ? keyExtractor(item, index) : index}>
+          {renderItem({ item, index, separators: {} })}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export const RefreshControl = (props: any) => {
+  // Simplified - in a real app you'd implement pull-to-refresh
+  return null;
+};
+
+// StyleSheet polyfill
+export const StyleSheet = {
+  create: (styles: any) => styles,
+};
+
 // Constants
-export const COLORS = {
-  primary: '#6366f1',
-  secondary: '#8b5cf6',
-  success: '#10b981',
-  warning: '#f59e0b',
-  error: '#ef4444',
-  background: {
-    primary: '#ffffff',
-    secondary: '#f9fafb',
-  },
-  text: {
-    primary: '#111827',
-    secondary: '#6b7280',
-    light: '#9ca3af',
-    dark: '#ffffff',
-  },
-  border: {
-    light: '#e5e7eb',
-  },
-  chip: {
-    blue: '#dbeafe',
-    green: '#d1fae5',
-    yellow: '#fef3c7',
-    purple: '#e0e7ff',
-  },
-};
-
-export const SPACING = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 24,
-  xxl: 32,
-};
-
-export const FONT_SIZES = {
-  xs: 10,
-  sm: 12,
-  md: 14,
-  lg: 16,
-  xl: 18,
-  xxl: 20,
-  title: 24,
-  subtitle: 32,
-};
-
-export const BORDER_RADIUS = {
-  sm: 4,
-  md: 8,
-  lg: 12,
-  xl: 16,
-  round: 999,
-};
+export { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../constants';
 
 // Add CSS animation
 const style = document.createElement('style');

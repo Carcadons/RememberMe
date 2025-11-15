@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
@@ -96,11 +97,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'react-native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/web-compat.ts',
-      '@expo/vector-icons': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/icons-compat.ts',
-      '@react-navigation/native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
-      '@react-navigation/bottom-tabs': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
-      '@react-navigation/stack': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
+      'react-native': path.resolve(__dirname, './src/web-compat.ts'),
+      '@expo/vector-icons': path.resolve(__dirname, './src/icons-compat.ts'),
+      'expo-local-authentication': path.resolve(__dirname, './src/expo-compat.ts'),
+      '@react-native-async-storage/async-storage': path.resolve(__dirname, './src/storage-compat.ts'),
+      '@react-navigation/native': path.resolve(__dirname, './src/navigation-compat.ts'),
+      '@react-navigation/bottom-tabs': path.resolve(__dirname, './src/navigation-compat.ts'),
+      '@react-navigation/stack': path.resolve(__dirname, './src/navigation-compat.ts'),
     },
   },
 });
