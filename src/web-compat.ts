@@ -8,13 +8,13 @@ import { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../constants';
 export { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS };
 
 // Re-export Web Components as React Native primitives
-export const View = ({ children, style, className, onPress, onClick, ...props }: any) => {
+export const View = ({ children, style: viewStyle, className, onPress, onClick, ...props }: any) => {
   const handleClick = () => {
     onPress?.();
     onClick?.();
   };
   return (
-    <div style={style} className={className} onClick={handleClick} {...props}>
+    <div style={viewStyle} className={className} onClick={handleClick} {...props}>
       {children}
     </div>
   );
