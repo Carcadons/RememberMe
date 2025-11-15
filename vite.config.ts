@@ -99,6 +99,8 @@ export default defineConfig({
       'react-native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/web-compat.ts',
       '@expo/vector-icons': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/icons-compat.ts',
       '@react-navigation/native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
+      '@react-navigation/bottom-tabs': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
+      '@react-navigation/stack': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
     },
   },
 });
