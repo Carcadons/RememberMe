@@ -94,4 +94,11 @@ export default defineConfig({
   define: {
     'process.env': {},
   },
+  resolve: {
+    alias: {
+      'react-native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/web-compat.ts',
+      '@expo/vector-icons': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/icons-compat.ts',
+      '@react-navigation/native': '/Users/tizzanifrancesco/Documents/GitHub/RememberMe/src/navigation-compat.ts',
+    },
+  },
 });
