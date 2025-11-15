@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- iOS PWA Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="RememberMe" />
+
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167x167.png" />
+
+    <!-- Standard PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <title>RememberMe - Private Pocket Dossier</title>
+    <meta name="description" content="A private, encrypted pocket dossier for busy professionals. 3-second prep before every meeting." />
+
+    <style>
+      body, html, #root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- iOS Install Prompt Script -->
+    <script>
+      // Detect iOS
+      const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+      const isInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+      // Show iOS install prompt
+      if (isIOS && !isInstalled && !window.localStorage.getItem('ios-install-dismissed')) {
+        window.addEventListener('beforeinstallprompt', function(e) {
+          e.preventDefault();
+        });
+
+        // Show custom iOS install banner after 2 seconds
+        setTimeout(() => {
+          const iosPrompt = document.createElement('div');
+          iosPrompt.innerHTML = `
+            <div style="
+              position: fixed;
+              bottom: 20px;
+              left: 20px;
+              right: 20px;
+              background: linear-gradient(135deg, #6366f1, #8b5cf6);
+              color: white;
+              padding: 16px;
+              border-radius: 12px;
+              z-index: 9999;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+              animation: slideUp 0.3s ease-out;
+            ">
+              <strong style="font-size: 16px;">📱 Install RememberMe</strong>
+              <p style="margin: 8px 0; font-size: 14px; line-height: 1.4;">
+                Tap the Share button below and select "Add to Home Screen"
+              </p>
+              <button onclick="
+                this.parentElement.remove();
+                window.localStorage.setItem('ios-install-dismissed', 'true');
+              " style="
+                background: white;
+                color: #6366f1;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 14px;
+              ">Got it</button>
+            </div>
+            <style>
+              @keyframes slideUp {
+                from { transform: translateY(100px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+              }
+            </style>
+          `;
+          document.body.appendChild(iosPrompt);
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
