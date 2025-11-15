@@ -32,3 +32,6 @@ REPLIT_NO_COVERAGE_RERUN = "1"
 [watch]
 patterns = ["src/**/*", "index.html"]
 ignorePatterns = ["node_modules", "build"]
+
+[agent]
+expertMode = true
