@@ -85,6 +85,7 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    allowedHosts: ['localhost', '*.local', 'd126cbef-da3a-480e-a4af-fa222758d42e-00-2806jiytfje44.pike.replit.dev'],
   },
   build: {
     outDir: 'build',
