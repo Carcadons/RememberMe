@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "🚀 Starting RememberMe on Replit..."
+echo "📱 This is a PWA - you can install it on your phone!"
+echo ""
+echo "To install on iOS:"
+echo "   1. Tap the Share button (box with arrow)"
+echo "   2. Select 'Add to Home Screen'"
+echo "   3. Tap 'Add'"
+echo ""
+echo "To install on Android:"
+echo "   1. Tap the menu (3 dots)"
+echo "   2. Select 'Add to Home Screen'"
+echo "   3. Tap 'Add'"
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+npm run dev
