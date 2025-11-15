@@ -20,9 +20,9 @@ export const View = ({ children, style: viewStyle, className, onPress, onClick, 
   );
 };
 
-export const Text = ({ children, style, className, numberOfLines, ...props }: any) => {
+export const Text = ({ children, style: textStyleProps, className, numberOfLines, ...props }: any) => {
   const textStyle: CSSProperties = {
-    ...style,
+    ...textStyleProps,
     ...(numberOfLines ? {
       display: '-webkit-box',
       WebkitLineClamp: numberOfLines,
@@ -72,12 +72,12 @@ export const TouchableOpacity = ({ children, onPress, style, activeOpacity = 0.7
   );
 };
 
-export const TextInput = ({ style, value, onChangeText, placeholder, secureTextEntry, ...props }: any) => {
+export const TextInput = ({ style: inputStyle, value, onChangeText, placeholder, secureTextEntry, ...props }: any) => {
   return (
     <input
       type={secureTextEntry ? 'password' : 'text'}
       style={{
-        ...style,
+        ...inputStyle,
         padding: '8px 12px',
         border: '1px solid #e5e7eb',
         borderRadius: '8px',
@@ -146,9 +146,9 @@ export const ActivityIndicator = ({ size = 'small', color = COLORS.primary }: an
   );
 };
 
-export const Image = ({ source, style }: any) => {
+export const Image = ({ source, style: imageStyle }: any) => {
   const uri = typeof source === 'object' ? source.uri : source;
-  return <img src={uri} style={style} />;
+  return <img src={uri} style={imageStyle} />;
 };
 
 // Alert polyfill
