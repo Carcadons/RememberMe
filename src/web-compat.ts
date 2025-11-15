@@ -2,6 +2,10 @@
 // This file provides drop-in replacements for React Native components and APIs
 
 import React, { CSSProperties } from 'react';
+import { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../constants';
+
+// Re-export the constants for easy access
+export { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS };
 
 // Re-export Web Components as React Native primitives
 export const View = ({ children, style, className, onPress, onClick, ...props }: any) => {
@@ -188,9 +192,6 @@ export const RefreshControl = (props: any) => {
 export const StyleSheet = {
   create: (styles: any) => styles,
 };
-
-// Constants
-export { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../constants';
 
 // Add CSS animation
 const style = document.createElement('style');
